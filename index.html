@@ -213,14 +213,60 @@
                 }
             });
 
-            // ドコモ・バイクシェア
-            map.addSource('docomo-cycle', {
+            // ドコモ・バイクシェア（東京）
+            map.addSource('docomo-cycle-toyko', {
                 'type': 'geojson',
                 'data': './data/docomo-cycle-tokyo_station.geojson',
                 attribution: '<a href="https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-bikeshare">株式会社ドコモ・バイクシェア / 公共交通オープンデータ協議会</a>'
             });
 
-            // ドコモ・バイクシェアポイント
+            // ドコモ・バイクシェア（東京）ポイント
+            map.addLayer({
+                'id': 'docomo-cycle-toyko-points-1',
+                'type': 'circle',
+                'source': 'docomo-cycle-toyko',
+                'paint': {
+                    'circle-color': 'rgba(208, 14, 49, 1)',
+                    'circle-radius': 18,
+                    'circle-blur': 2.5,
+                    'circle-opacity': 0.6
+                }
+            });
+
+            // ドドコモ・バイクシェア（東京）ポイント
+            map.addLayer({
+                'id': 'docomo-cycle-toyko-points-2',
+                'type': 'circle',
+                'source': 'docomo-cycle-toyko',
+                'paint': {
+                    'circle-color': 'rgba(208, 14, 49, 1)',
+                    'circle-radius': 9,
+                    'circle-blur': 1.5,
+                    'circle-opacity': 0.8
+                }
+            });
+
+            // ドコモ・バイクシェア（東京）ポイント
+            map.addLayer({
+                'id': 'docomo-cycle-toyko-points-3',
+                'type': 'circle',
+                'source': 'docomo-cycle-toyko',
+                'paint': {
+                    'circle-color': 'rgba(255, 255, 255, 1)',
+                    'circle-radius': 1,
+                    'circle-blur': 0,
+                    'circle-opacity': 1
+                }
+            });
+
+            // ドコモ・バイクシェア（東京以外）
+            map.addSource('docomo-cycle', {
+                'type': 'geojson',
+                'data': './data/docomo-cycle_station.geojson',
+                attribution: '<a href="https://docomo-cycle.jp/">株式会社ドコモ・バイクシェア</a>'
+            });
+
+            // ドコモ・バイクシェア（東京以外）ポイント
             map.addLayer({
                 'id': 'docomo-cycle-points-1',
                 'type': 'circle',
@@ -233,7 +279,7 @@
                 }
             });
 
-            // ドコモ・バイクシェアポイント
+            // ドコモ・バイクシェア（東京以外）ポイント
             map.addLayer({
                 'id': 'docomo-cycle-points-2',
                 'type': 'circle',
@@ -246,7 +292,7 @@
                 }
             });
 
-            // ドコモ・バイクシェアポイント
+            // ドコモ・バイクシェア（東京以外）ポイント
             map.addLayer({
                 'id': 'docomo-cycle-points-3',
                 'type': 'circle',
