@@ -10,11 +10,19 @@ URL: `https://api-public.odpt.org/api/v4/gbfs/docomo-cycle-tokyo/station_informa
 [HELLOCYCLING](https://ckan.odpt.org/dataset/c_bikeshare_gbfs-openstreet/resource/d45e9650-b243-4f5a-bda6-c2b0cb61e8a3)  
 URL: `https://api-public.odpt.org/api/v4/gbfs/hellocycling/station_information.json`
 ### 取得結果
-#### ドコモ・バイクシェア
+#### ドコモ・バイクシェア（東京のみ）
 `https://github.com/shi-works/bikeshare-map/blob/main/data/docomo-cycle-tokyo_station.csv`
 #### HELLOCYCLING
 `https://github.com/shi-works/bikeshare-map/blob/main/data/hellocycling_station.csv`  
-#### ※CSVからGeoJSONへの変換にはQGISを使用します。
+
+### ※CSVからGeoJSONへの変換にはQGISを使用します。
+#### ドコモ・バイクシェア（東京のみ）
+`https://github.com/shi-works/bikeshare-map/blob/main/data/docomo-cycle-tokyo_station.geojson`
+#### ドコモ・バイクシェア（東京以外）
+- ドコモ・バイクシェア（東京以外）は[ドコモ・バイクシェア](https://docomo-cycle.jp/)の公式サイトよりkmlを取得し、GeoJSONに変換後、マージしたデータになります。
+`https://github.com/shi-works/bikeshare-map/blob/main/data/docomo-cycle_station.geojson`
+#### HELLOCYCLING
+`https://github.com/shi-works/bikeshare-map/blob/main/data/hellocycling_station.geojson`  
 
 ## ライセンス
 本データセットはCC-BY-4.0で提供されます。使用の際には本レポジトリへのリンクを提示してください。
