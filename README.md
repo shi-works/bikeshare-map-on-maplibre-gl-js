@@ -12,4 +12,5 @@ URL: `https://api-public.odpt.org/api/v4/gbfs/hellocycling/station_information.j
 #### ドコモ・バイクシェア
 `https://github.com/shi-works/bikeshare-map/blob/main/data/docomo-cycle-tokyo_station.csv`
 #### HELLOCYCLING
-`https://github.com/shi-works/bikeshare-map/blob/main/data/hellocycling_station.csv`
+`https://github.com/shi-works/bikeshare-map/blob/main/data/hellocycling_station.csv`  
+※CSVからGeoJSONへの変換にはQGISを使用します。
