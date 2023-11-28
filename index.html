@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>シェアサイクルマップ（2023年4月）</title>
+    <title>シェアサイクルマップ（2023年11月）</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <!-- MapLibre -->
-    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
-    <script src="https://unpkg.com/pmtiles@2.7.0/dist/index.js"></script>
+    <script src='https://unpkg.com/maplibre-gl@3.4.1/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@3.4.1/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/pmtiles@2.10.0/dist/index.js"></script>
     <style>
         body {
             margin: 0;
@@ -190,14 +190,14 @@
         // Attributionを折りたたみ表示
         map.addControl(new maplibregl.AttributionControl({
             compact: true,
-            customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/bikeshare-map" target="_blank">Github</a>） '
+            customAttribution: '（<a href="https://twitter.com/syanseto" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/bikeshare-map-on-maplibre-gl-js" target="_blank">Github</a>） '
         }));
 
         map.on('load', () => {
             // 人口集中地区ベクトルタイル
             map.addSource("did", {
                 type: "vector",
-                url: "pmtiles://" + PMTILES_DID_URL,
+                url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles",
                 attribution: '<a href="https://www.e-stat.go.jp/gis">政府統計の総合窓口[e-Stat] 人口集中地区（2020年）</a>'
             });
 
@@ -209,7 +209,7 @@
                 "type": "fill",
                 "paint": {
                     'fill-color': 'rgb(255, 191, 0)',
-                    'fill-opacity': 0.2
+                    'fill-opacity': 0.1
                 }
             });
 
@@ -220,6 +220,7 @@
                 attribution: '<a href="https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-bikeshare">株式会社ドコモ・バイクシェア / 公共交通オープンデータ協議会</a>'
             });
 
+            /*
             // ドコモ・バイクシェア（東京）ポイント
             map.addLayer({
                 'id': 'docomo-cycle-toyko-points-1',
@@ -233,7 +234,7 @@
                 }
             });
 
-            // ドドコモ・バイクシェア（東京）ポイント
+            // ドコモ・バイクシェア（東京）ポイント
             map.addLayer({
                 'id': 'docomo-cycle-toyko-points-2',
                 'type': 'circle',
@@ -258,15 +259,16 @@
                     'circle-opacity': 1
                 }
             });
+            */
 
-            // ドコモ・バイクシェア（東京以外）
+            // ドコモ・バイクシェア
             map.addSource('docomo-cycle', {
                 'type': 'geojson',
                 'data': './data/docomo-cycle_station.geojson',
                 attribution: '<a href="https://docomo-cycle.jp/">株式会社ドコモ・バイクシェア</a>'
             });
 
-            // ドコモ・バイクシェア（東京以外）ポイント
+            // ドコモ・バイクシェアポイント
             map.addLayer({
                 'id': 'docomo-cycle-points-1',
                 'type': 'circle',
@@ -279,7 +281,7 @@
                 }
             });
 
-            // ドコモ・バイクシェア（東京以外）ポイント
+            // ドコモ・バイクシェアポイント
             map.addLayer({
                 'id': 'docomo-cycle-points-2',
                 'type': 'circle',
@@ -292,7 +294,7 @@
                 }
             });
 
-            // ドコモ・バイクシェア（東京以外）ポイント
+            // ドコモ・バイクシェアポイント
             map.addLayer({
                 'id': 'docomo-cycle-points-3',
                 'type': 'circle',
