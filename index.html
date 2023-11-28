@@ -267,6 +267,8 @@
                 'id': 'docomo-cycle-points-1',
                 'type': 'circle',
                 'source': 'docomo-cycle',
+                'minzoom': 9.5,
+                'maxzoom': 23,
                 'paint': {
                     'circle-color': 'rgba(208, 14, 49, 1)',
                     'circle-radius': 18,
@@ -280,6 +282,8 @@
                 'id': 'docomo-cycle-points-2',
                 'type': 'circle',
                 'source': 'docomo-cycle',
+                'minzoom': 9.5,
+                'maxzoom': 23,
                 'paint': {
                     'circle-color': 'rgba(208, 14, 49, 1)',
                     'circle-radius': 9,
@@ -293,11 +297,51 @@
                 'id': 'docomo-cycle-points-3',
                 'type': 'circle',
                 'source': 'docomo-cycle',
+                'minzoom': 9.5,
+                'maxzoom': 23,
                 'paint': {
                     'circle-color': 'rgba(255, 255, 255, 1)',
                     'circle-radius': 1,
                     'circle-blur': 0,
                     'circle-opacity': 1
+                }
+            });
+
+            // ドコモ・バイクシェアヒートマップ
+            map.addLayer({
+                "id": "docomo-cycle-heatmap",
+                "type": "heatmap",
+                'source': 'docomo-cycle',
+                'minzoom': 0,
+                'maxzoom': 9.5,
+                "paint": {
+                    "heatmap-color": [
+                        "interpolate",
+                        [
+                            "linear"
+                        ],
+                        [
+                            "heatmap-density"
+                        ],
+                        0,
+                        "rgba(255, 255, 255, 0)",
+                        1,
+                        "rgba(208, 14, 49, 0.5)"
+                    ],
+                    "heatmap-radius": [
+                        "interpolate",
+                        [
+                            "exponential",
+                            2
+                        ],
+                        [
+                            "zoom"
+                        ],
+                        2,
+                        8,
+                        9,
+                        20
+                    ]
                 }
             });
 
@@ -313,6 +357,8 @@
                 'id': 'hellocycling-points-1',
                 'type': 'circle',
                 'source': 'hellocycling',
+                'minzoom': 9.5,
+                'maxzoom': 23,
                 'paint': {
                     'circle-color': 'rgba(249, 202, 34, 1)',
                     'circle-radius': 18,
@@ -326,6 +372,8 @@
                 'id': 'hellocycling-points-2',
                 'type': 'circle',
                 'source': 'hellocycling',
+                'minzoom': 9.5,
+                'maxzoom': 23,
                 'paint': {
                     'circle-color': 'rgba(249, 202, 34, 1)',
                     'circle-radius': 9,
@@ -339,11 +387,51 @@
                 'id': 'hellocycling-points-3',
                 'type': 'circle',
                 'source': 'hellocycling',
+                'minzoom': 9.5,
+                'maxzoom': 23,
                 'paint': {
                     'circle-color': 'rgba(255, 255, 255, 1)',
                     'circle-radius': 1,
                     'circle-blur': 0,
                     'circle-opacity': 1
+                }
+            });
+
+            // HELLOCYCLINGヒートマップ
+            map.addLayer({
+                "id": "hellocycling-heatmap",
+                "type": "heatmap",
+                'source': 'hellocycling',
+                'minzoom': 0,
+                'maxzoom': 9.5,
+                "paint": {
+                    "heatmap-color": [
+                        "interpolate",
+                        [
+                            "linear"
+                        ],
+                        [
+                            "heatmap-density"
+                        ],
+                        0,
+                        "rgba(255, 255, 255, 0)",
+                        1,
+                        "rgba(249, 202, 34, 0.5)"
+                    ],
+                    "heatmap-radius": [
+                        "interpolate",
+                        [
+                            "exponential",
+                            2
+                        ],
+                        [
+                            "zoom"
+                        ],
+                        2,
+                        8,
+                        9,
+                        20
+                    ]
                 }
             });
 
