@@ -82,17 +82,6 @@
             font-weight: bold;
         }
 
-        th,
-        td {
-            border: solid 1px;
-        }
-
-        table {
-            font-size: 8pt;
-            width: 160px;
-            border-collapse: collapse;
-        }
-
         .legend {
             background-color: #fff;
             border-radius: 3px;
@@ -207,6 +196,7 @@
                 }
             });
 
+            /*
             // ドコモ・バイクシェア（東京）
             map.addSource('docomo-cycle-toyko', {
                 'type': 'geojson',
@@ -214,7 +204,6 @@
                 attribution: '<a href="https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-bikeshare">株式会社ドコモ・バイクシェア / 公共交通オープンデータ協議会</a>'
             });
 
-            /*
             // ドコモ・バイクシェア（東京）ポイント
             map.addLayer({
                 'id': 'docomo-cycle-toyko-points-1',
@@ -434,36 +423,6 @@
                     ]
                 }
             });
-
-            /*
-            map.on('click', 'points-1', (e) => {
-                var lng = e.lngLat.lng;
-                var lat = e.lngLat.lat;
-                var info_code = e.features[0].properties['情報源コード'];
-                var intersection_code = e.features[0].properties['交差点番号'];
-                var year_month = e.features[0].properties['年月'];
-                var hour = e.features[0].properties['時間帯'];
-                var cycle = e.features[0].properties['平均サイクル長'];
-
-                new maplibregl.Popup()
-                    .setLngLat(e.lngLat)
-                    .setHTML(
-                        // 表形式
-                        '<table>' +
-                        '<tr>' + '<th>' + '項目' + '</th> ' + '<th>' + '内容' + '</th> ' + '</tr>' +
-                        '<tr>' + '<td>' + '情報源コード' + '</td> ' + '<td>' + info_code + '</td> ' + '</tr>' +
-                        '<tr>' + '<td>' + '交差点番号' + '</td> ' + '<td>' + intersection_code + '</td> ' + '</tr>' +
-                        '<tr>' + '<td>' + '年月' + '</td> ' + '<td>' + year_month + '</td> ' + '</tr>' +
-                        '<tr>' + '<td>' + '時間帯' + '</td> ' + '<td>' + hour + '</td> ' + '</tr>' +
-                        '<tr>' + '<td>' + '平均サイクル長(秒)' + '</td> ' + '<td>' + cycle + '</td> ' + '</tr>' +
-                        '<table>'
-                        + '座標: ' + lat.toFixed(7) + "," + lng.toFixed(7) + '<br>※クリック位置の座標<br>'
-                        + '<a href=\https://www.google.com/maps?q=' + lat + "," + lng + "&hl=ja' target='_blank'>🌎Google Maps</a>" + ' '
-                        + '<a href=\https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + lat + "," + lng + "&hl=ja' target='_blank'>📷Street View</a>"
-                    )
-                    .addTo(map);
-            });
-            */
 
         });
     </script>
