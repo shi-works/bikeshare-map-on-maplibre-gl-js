@@ -73,7 +73,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
             border-radius: 5px;
             width: 220px;
-            height: 80px;
+            height: 100px;
             /*overflow: scroll;*/
         }
 
@@ -437,6 +437,7 @@
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(
+                    '<div><strong><span style="color: #F9CA22; font-size: 1.2em;">ハローサイクリング</span></strong></div>' +
                     '<div><strong>名称: <span style="color: #000000; font-size: 1.2em;">' + name + '</span></strong></div>' +
                     '<div>住所: ' + address + '</div>' +
                     '<div><a href="' + rental_uris_web + '" target="_blank">レンタルWebサイト</a></div>' +
@@ -455,6 +456,7 @@
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(
+                    '<div><strong><span style="color: #D00E31; font-size: 1.2em;">ドコモ・バイクシェア</span></strong></div>' +
                     '<div><strong>名称: <span style="color: #000000; font-size: 1.2em;">' + name + '</span></strong></div>' +
                     '<div><a href="https://www.google.com/maps?q=' + lat + ',' + lng + '&hl=ja" target="_blank">🌎Google Maps</a></div>' +
                     '<div><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + lat + ',' + lng + '&hl=ja" target="_blank">📷Street View</a></div>'
