@@ -73,8 +73,8 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
             border-radius: 5px;
             width: 220px;
-            height: 170px;
-            overflow: scroll;
+            height: 80px;
+            /*overflow: scroll;*/
         }
 
         .label-large {
@@ -425,6 +425,43 @@
             });
 
         });
+
+        // HELLOCYCLINGポップアップ表示
+        map.on('click', 'hellocycling-points-1', (e) => {
+            var lng = e.features[0].properties['lon'];
+            var lat = e.features[0].properties['lat'];
+            var name = e.features[0].properties['name'];
+            var address = e.features[0].properties['address'];
+            var rental_uris_web = e.features[0].properties['rental_uris.web'];
+
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(
+                    '<div><strong>名称: <span style="color: #000000; font-size: 1.2em;">' + name + '</span></strong></div>' +
+                    '<div>住所: ' + address + '</div>' +
+                    '<div><a href="' + rental_uris_web + '" target="_blank">レンタルWebサイト</a></div>' +
+                    '<div><a href="https://www.google.com/maps?q=' + lat + ',' + lng + '&hl=ja" target="_blank">🌎Google Maps</a></div>' +
+                    '<div><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + lat + ',' + lng + '&hl=ja" target="_blank">📷Street View</a></div>'
+                )
+                .addTo(map);
+        });
+
+        // ドコモ・バイクシェアポップアップ表示
+        map.on('click', 'docomo-cycle-points-1', (e) => {
+            var lng = e.features[0].properties['lon'];
+            var lat = e.features[0].properties['lat'];
+            var name = e.features[0].properties['name'];
+
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(
+                    '<div><strong>名称: <span style="color: #000000; font-size: 1.2em;">' + name + '</span></strong></div>' +
+                    '<div><a href="https://www.google.com/maps?q=' + lat + ',' + lng + '&hl=ja" target="_blank">🌎Google Maps</a></div>' +
+                    '<div><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' + lat + ',' + lng + '&hl=ja" target="_blank">📷Street View</a></div>'
+                )
+                .addTo(map);
+        });
+
     </script>
 
 </body>
