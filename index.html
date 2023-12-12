@@ -137,14 +137,15 @@
         let protocol = new pmtiles.Protocol();
         maplibregl.addProtocol("pmtiles", protocol.tile);
 
+        // マップの初期化
         var map = new maplibregl.Map({
             container: 'map',
             style: './dark.json',
-            center: [139.7719, 35.6527], // 中心座標
-            zoom: 10, // ズームレベル
-            pitch: 0, // 傾き
+            center: [139.7719, 35.6527],
+            zoom: 10,
+            pitch: 0,
+            maxPitch: 85,
             hash: true,
-            // 既存Attributionを非表示
             attributionControl: false
         })
 
@@ -177,7 +178,7 @@
         }));
 
         map.on('load', () => {
-            // 人口集中地区ベクトルタイル
+            // 人口集中地区ポリゴンソース
             map.addSource("did", {
                 type: "vector",
                 url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles",
@@ -196,62 +197,14 @@
                 }
             });
 
-            /*
-            // ドコモ・バイクシェア（東京）
-            map.addSource('docomo-cycle-toyko', {
-                'type': 'geojson',
-                'data': './data/docomo-cycle-tokyo_station.geojson',
-                attribution: '<a href="https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-bikeshare">株式会社ドコモ・バイクシェア / 公共交通オープンデータ協議会</a>'
-            });
-
-            // ドコモ・バイクシェア（東京）ポイント
-            map.addLayer({
-                'id': 'docomo-cycle-toyko-points-1',
-                'type': 'circle',
-                'source': 'docomo-cycle-toyko',
-                'paint': {
-                    'circle-color': 'rgba(208, 14, 49, 1)',
-                    'circle-radius': 18,
-                    'circle-blur': 2.5,
-                    'circle-opacity': 0.6
-                }
-            });
-
-            // ドコモ・バイクシェア（東京）ポイント
-            map.addLayer({
-                'id': 'docomo-cycle-toyko-points-2',
-                'type': 'circle',
-                'source': 'docomo-cycle-toyko',
-                'paint': {
-                    'circle-color': 'rgba(208, 14, 49, 1)',
-                    'circle-radius': 9,
-                    'circle-blur': 1.5,
-                    'circle-opacity': 0.8
-                }
-            });
-
-            // ドコモ・バイクシェア（東京）ポイント
-            map.addLayer({
-                'id': 'docomo-cycle-toyko-points-3',
-                'type': 'circle',
-                'source': 'docomo-cycle-toyko',
-                'paint': {
-                    'circle-color': 'rgba(255, 255, 255, 1)',
-                    'circle-radius': 1,
-                    'circle-blur': 0,
-                    'circle-opacity': 1
-                }
-            });
-            */
-
-            // ドコモ・バイクシェア
+            // ドコモ・バイクシェアソース
             map.addSource('docomo-cycle', {
                 'type': 'geojson',
                 'data': './data/docomo-cycle_station.geojson',
                 attribution: '<a href="https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-nationwide-bikeshare">株式会社ドコモ・バイクシェア / 公共交通オープンデータ協議会</a>'
             });
 
-            // ドコモ・バイクシェアポイント
+            // ドコモ・バイクシェアポイントレイヤ
             map.addLayer({
                 'id': 'docomo-cycle-points-1',
                 'type': 'circle',
@@ -266,7 +219,7 @@
                 }
             });
 
-            // ドコモ・バイクシェアポイント
+            // ドコモ・バイクシェアポイントレイヤ
             map.addLayer({
                 'id': 'docomo-cycle-points-2',
                 'type': 'circle',
@@ -281,7 +234,7 @@
                 }
             });
 
-            // ドコモ・バイクシェアポイント
+            // ドコモ・バイクシェアポイントレイヤ
             map.addLayer({
                 'id': 'docomo-cycle-points-3',
                 'type': 'circle',
@@ -296,7 +249,7 @@
                 }
             });
 
-            // ドコモ・バイクシェアヒートマップ
+            // ドコモ・バイクシェアヒートマップレイヤ
             map.addLayer({
                 "id": "docomo-cycle-heatmap",
                 "type": "heatmap",
@@ -334,14 +287,14 @@
                 }
             });
 
-            // HELLOCYCLING
+            // HELLOCYCLINGソース
             map.addSource('hellocycling', {
                 'type': 'geojson',
                 'data': './data/hellocycling_station.geojson',
                 attribution: '<a href="https://ckan.odpt.org/dataset/c_bikeshare_gbfs-openstreet">OpenStreet株式会社 / 公共交通オープンデータ協議会</a>'
             });
 
-            // HELLOCYCLINGポイント
+            // HELLOCYCLINGポイントレイヤ
             map.addLayer({
                 'id': 'hellocycling-points-1',
                 'type': 'circle',
@@ -356,7 +309,7 @@
                 }
             });
 
-            // HELLOCYCLINGポイント
+            // HELLOCYCLINGポイントレイヤ
             map.addLayer({
                 'id': 'hellocycling-points-2',
                 'type': 'circle',
@@ -371,7 +324,7 @@
                 }
             });
 
-            // HELLOCYCLINGポイント
+            // HELLOCYCLINGポイントレイヤ
             map.addLayer({
                 'id': 'hellocycling-points-3',
                 'type': 'circle',
@@ -386,7 +339,7 @@
                 }
             });
 
-            // HELLOCYCLINGヒートマップ
+            // HELLOCYCLINGヒートマップレイヤ
             map.addLayer({
                 "id": "hellocycling-heatmap",
                 "type": "heatmap",
