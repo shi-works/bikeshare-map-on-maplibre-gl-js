@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>シェアサイクルマップ（2023年11月）</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <!-- MapLibre -->
     <script src='https://unpkg.com/maplibre-gl@3.4.1/dist/maplibre-gl.js'></script>
     <link href='https://unpkg.com/maplibre-gl@3.4.1/dist/maplibre-gl.css' rel='stylesheet' />
     <script src="https://unpkg.com/pmtiles@2.10.0/dist/index.js"></script>
@@ -174,7 +173,7 @@
         // Attributionを折りたたみ表示
         map.addControl(new maplibregl.AttributionControl({
             compact: true,
-            customAttribution: '（<a href="https://twitter.com/syanseto" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/bikeshare-map-on-maplibre-gl-js" target="_blank">Github</a>） '
+            customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/bikeshare-map-on-maplibre-gl-js" target="_blank">Github</a>） '
         }));
 
         map.on('load', () => {
